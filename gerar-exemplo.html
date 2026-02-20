@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerar Planilha de Exemplo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background: #218838;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .info {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: left;
+            font-size: 0.9em;
+        }
+        .back-link {
+            margin-top: 20px;
+            display: block;
+            color: #667eea;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>📊 Planilha de Exemplo</h1>
+        <p>Clique no botão abaixo para gerar e baixar uma planilha Excel de exemplo com produtos de teste.</p>
+        <p>Use esta planilha para testar o sistema de emissão de recibos!</p>
+        
+        <button onclick="generateExcel()">
+            📥 Gerar e Baixar Planilha (.xlsx)
+        </button>
+        
+        <div class="info">
+            <strong>📋 A planilha contém:</strong><br>
+            • 10 produtos de exemplo<br>
+            • Colunas: codigo, descricao, unid, VALOR UNIT<br>
+            • Preços formatados em R$
+        </div>
+        
+        <a href="sistema.html" class="back-link">← Voltar ao Sistema</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script>
+        function generateExcel() {
+            // Dados de exemplo
+            const data = [
+                { codigo: '001', descricao: 'TOCA SANFONADA', unid: 'PCT/100', 'VALOR UNIT': 17.00 },
+                { codigo: '002', descricao: 'LUVA CIRURGICA ESTERIL', unid: 'CX', 'VALOR UNIT': 87.00 },
+                { codigo: '003', descricao: 'MASCARA N95', unid: 'PCT/20', 'VALOR UNIT': 45.50 },
+                { codigo: '004', descricao: 'ALCOOL GEL 70%', unid: 'FR/500ML', 'VALOR UNIT': 12.90 },
+                { codigo: '005', descricao: 'SERINGA 10ML', unid: 'PCT/100', 'VALOR UNIT': 35.00 },
+                { codigo: '006', descricao: 'ESPARADRAPO', unid: 'UN', 'VALOR UNIT': 8.50 },
+                { codigo: '007', descricao: 'GAZE ESTERIL', unid: 'PCT/10', 'VALOR UNIT': 15.00 },
+                { codigo: '008', descricao: 'TERMOMETRO DIGITAL', unid: 'UN', 'VALOR UNIT': 25.00 },
+                { codigo: '009', descricao: 'ALGODAO HIDROFILO', unid: 'KG', 'VALOR UNIT': 22.00 },
+                { codigo: '010', descricao: 'ESTETOSCOPIO', unid: 'UN', 'VALOR UNIT': 120.00 }
+            ];
+            
+            // Cria planilha
+            const ws = XLSX.utils.json_to_sheet(data);
+            
+            // Ajusta largura das colunas
+            const colWidths = [
+                { wch: 10 },  // codigo
+                { wch: 35 },  // descricao
+                { wch: 12 },  // unid
+                { wch: 12 }   // VALOR UNIT
+            ];
+            ws['!cols'] = colWidths;
+            
+            // Cria workbook
+            const wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, 'Produtos');
+            
+            // Gera arquivo e faz download
+            XLSX.writeFile(wb, 'tabela_precos_exemplo.xlsx');
+            
+            alert('✅ Planilha gerada com sucesso!\n\nAgora você pode usar este arquivo no sistema para testar a importação de produtos.');
+        }
+    </script>
+</body>
+</html>

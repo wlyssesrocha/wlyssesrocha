@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imprimir Recibo - Pedido Comercial</title>
+    <link rel="stylesheet" href="css/print.css">
+</head>
+<body>
+    <div class="no-print actions-bar">
+        <button class="btn btn-back" onclick="window.history.back()">
+            ← Voltar
+        </button>
+        <button class="btn btn-print" onclick="window.print()">
+            🖨️ Imprimir / Salvar PDF
+        </button>
+    </div>
+
+    <div class="print-page">
+        <!-- Cabeçalho com faixa vermelha -->
+        <div class="header-wave"></div>
+        
+        <!-- Logo e Informações da Empresa -->
+        <div class="header-section">
+            <div class="logo-area">
+                <div class="logo-placeholder">
+                    <span>SUA LOGO</span>
+                </div>
+            </div>
+            <div class="company-info">
+                <p class="company-cnpj">CNPJ: 38.949.469/0001-44</p>
+                <p class="company-name">EQUILAB DISTRIBUIDORA LTDA</p>
+                <p class="company-address">ELPIDIO PEREIRA SANTIAGO, Nº 462, BAIRRO DO AEROPORTO VELHO CRUZEIRO DO SUL-ACRE </p>
+                <p class="company-bank">BANCO DO BRASIL: Agência: 234-8 Conta: 109648-6</p>
+                <p class="company-contact">CONTATO: (68) 99946-2774</p>
+                <p class="company-email">email: admequilab@gmail.com</p>
+            </div>
+        </div>
+
+        <!-- Título e Dados do Pedido -->
+        <div class="order-header">
+            <div class="order-title">
+                <h2>PEDIDO COMERCIAL DE PRODUTOS</h2>
+            </div>
+            <div class="order-info">
+                <div class="order-client">
+                    <span class="label">CLIENTE:</span>
+                    <span id="printClientName" class="value">________________</span>
+                </div>
+                <div class="order-date">
+                    <span class="label">DATA DE ABERTURA:</span>
+                    <span id="printOrderDate" class="value">__/__/____</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabela de Itens -->
+        <div class="items-table-container">
+            <table class="items-table">
+                <thead>
+                    <tr>
+                        <th class="col-item">ITEM</th>
+                        <th class="col-description">DESCRIÇÃO</th>
+                        <th class="col-unit">UNID</th>
+                        <th class="col-quant">QUANT</th>
+                        <th class="col-price">UNIT</th>
+                        <th class="col-total">V.TOTAL</th>
+                    </tr>
+                </thead>
+                <tbody id="printItemsBody">
+                    <!-- Itens serão inseridos aqui via JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Total -->
+        <div class="total-section">
+            <span class="total-label">VALOR TOTAL=</span>
+            <span id="printTotalValue" class="total-value">R$ 0,00</span>
+        </div>
+
+        <!-- Marca d'água -->
+        <div class="watermark">
+            <svg viewBox=0" 0 200 200" xmlns="http://www.w3.org/2000/svg~]~.]
+            ">
+                <polygon points="100,20 180,60 180,140 100,180 20,140 20,60" 
+                         fill="none" 
+                         stroke="rgba(255, 100, 150, 0.15)" 
+                         stroke-width="4"/>
+                <polygon points="100,40 160,70 160,130 100,160 40,130 40,70" 
+                         fill="rgba(255, 150, 180, 0.08)" 
+                         stroke="rgba(255, 100, 150, 0.15)" 
+                         stroke-width="3"/>
+            </svg>
+        </div>
+
+        <!-- Espaço em branco para observações -->
+        <div class="observations-space"></div>
+
+        <!-- Rodapé -->
+        <div class="footer-section">
+            <p class="footer-company">EQUILAB DISTRIBUIDORA LTDA</p>
+            <p class="footer-cnpj">CNPJ da empresa: 38.949.469/0001-44</p>
+            <p class="footer-name">LINDEMBERG PEREIRA CHAVES</p>
+            <p class="footer-cpf">CPF: 618.836.542-20</p>
+        </div>
+    </div>
+
+    <script src="js/print.js"></script>
+</body>
+</html>

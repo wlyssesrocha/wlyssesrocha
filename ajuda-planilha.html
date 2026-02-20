@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Preparar sua Planilha Excel</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #ce15c5 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            color: #495057;
+            border-left: 4px solid #3149b6;
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .example-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .example-table th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .example-table td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            background: white;
+        }
+        
+        .example-table tr:nth-child(even) td {
+            background: #f8f9fa;
+        }
+        
+        .alert {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .alert-success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            color: #155724;
+        }
+        
+        .alert-warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            color: #856404;
+        }
+        
+        .alert-info {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            color: #0c5460;
+        }
+        
+        .code {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        
+        .checklist {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .checklist li {
+            padding: 10px;
+            margin-bottom: 8px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            position: relative;
+            padding-left: 40px;
+        }
+        
+        .checklist li::before {
+            content: "✓";
+            position: absolute;
+            left: 15px;
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .btn-back {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 25px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .btn-back:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Como Preparar sua Planilha Excel</h1>
+        
+        <div class="section">
+            <h2>1️⃣ Estrutura Obrigatória</h2>
+            <p>Sua planilha Excel (.xlsx) deve ter as seguintes colunas:</p>
+            
+            <table class="example-table">
+                <thead>
+                    <tr>
+                        <th>codigo</th>
+                        <th>descricao</th>
+                        <th>unid</th>
+                        <th>VALOR UNIT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>TOCA SANFONADA</td>
+                        <td>PCT/100</td>
+                        <td>17,00</td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>LUVA CIRURGICA ESTERIL</td>
+                        <td>CX</td>
+                        <td>87,00</td>
+                    </tr>
+                    <tr>
+                        <td>003</td>
+                        <td>MASCARA N95</td>
+                        <td>PCT/20</td>
+                        <td>45,50</td>
+                    </tr>
+                    <tr>
+                        <td>004</td>
+                        <td>ALCOOL GEL 70%</td>
+                        <td>FR/500ML</td>
+                        <td>12,90</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2>2️⃣ Descrição das Colunas</h2>
+            
+            <div class="alert alert-info">
+                <strong>📌 codigo</strong> (obrigatório)<br>
+                Código único do produto. Pode ser texto ou número.<br>
+                <em>Exemplos: 001, ABC123, PROD-001</em>
+            </div>
+            
+            <div class="alert alert-info">
+                <strong>📌 descricao</strong> (obrigatório)<br>
+                Nome completo do produto ou serviço.<br>
+                <em>Exemplos: TOCA SANFONADA, LUVA CIRURGICA</em>
+            </div>
+            
+            <div class="alert alert-warning">
+                <strong>📌 unid</strong> (opcional)<br>
+                Unidade de medida do produto.<br>
+                <em>Exemplos: PCT/100, CX, UN, KG, L, M</em><br>
+                Se não informado, aparecerá como "—"
+            </div>
+            
+            <div class="alert alert-warning">
+                <strong>📌 VALOR UNIT</strong> (opcional)<br>
+                Preço unitário do produto em reais.<br>
+                <em>Aceita: 17,00 ou 17.00 ou R$ 17,00 ou 17</em><br>
+                Se não informado, aparecerá como R$ 0,00
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>3️⃣ Formatos Aceitos para Preço</h2>
+            <div class="code">
+17,00       ✓ Correto<br>
+17.00       ✓ Correto<br>
+R$ 17,00    ✓ Correto<br>
+17          ✓ Correto<br>
+1.234,56    ✓ Correto (mil e duzentos)<br>
+1234.56     ✓ Correto (também aceito)<br>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>4️⃣ Nomes de Colunas Flexíveis</h2>
+            <p>O sistema aceita variações nos nomes das colunas (não diferencia maiúsculas/minúsculas):</p>
+            
+            <ul class="checklist">
+                <li><strong>codigo:</strong> código, code, item</li>
+                <li><strong>descricao:</strong> descrição, description, produto, product</li>
+                <li><strong>unid:</strong> unidade, un, unit</li>
+                <li><strong>VALOR UNIT:</strong> valor unitário, preco, preço, price, valor</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>5️⃣ Regras Importantes</h2>
+            
+            <div class="alert alert-success">
+                <strong>✓ Use a primeira aba</strong><br>
+                O sistema sempre lê a primeira aba (sheet) da planilha.
+            </div>
+            
+            <div class="alert alert-success">
+                <strong>✓ Primeira linha = cabeçalho</strong><br>
+                A primeira linha deve conter os nomes das colunas.
+            </div>
+            
+            <div class="alert alert-success">
+                <strong>✓ Formato .xlsx</strong><br>
+                Use arquivos Excel modernos (.xlsx), não .xls ou .csv
+            </div>
+            
+            <div class="alert alert-warning">
+                <strong>⚠️ Códigos únicos</strong><br>
+                Cada código deve ser único. Códigos duplicados podem causar problemas.
+            </div>
+            
+            <div class="alert alert-warning">
+                <strong>⚠️ Sem linhas vazias</strong><br>
+                Evite linhas em branco no meio da tabela.
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>6️⃣ Não tem planilha pronta?</h2>
+            <p>Use nosso gerador automático de planilha de exemplo!</p>
+            <a href="gerar-exemplo.html" class="btn-back">📥 Gerar Planilha de Exemplo</a>
+        </div>
+        
+        <a href="sistema.html" class="btn-back">← Voltar ao Sistema</a>
+    </div>
+</body>
+</html>

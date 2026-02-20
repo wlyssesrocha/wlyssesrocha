@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-vindo - Sistema de Recibos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f774f7 0%, #e65ace 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .welcome-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            width: 100%;
+            padding: 50px;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        
+        .subtitle {
+            color: #6c757d;
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-color: #667eea;
+        }
+        
+        .card-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .card-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .card-description {
+            font-size: 0.95em;
+            color: #6c757d;
+            line-height: 1.5;
+        }
+        
+        .primary-card {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .primary-card .card-title,
+        .primary-card .card-description {
+            color: white;
+        }
+        
+        .info-section {
+            margin-top: 40px;
+            padding: 25px;
+            background: #fff3cd;
+            border-radius: 10px;
+            text-align: left;
+        }
+        
+        .info-section h3 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+        
+        .info-section ul {
+            list-style: none;
+            color: #856404;
+        }
+        
+        .info-section li {
+            margin-bottom: 8px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .info-section li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .welcome-container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .subtitle {
+                font-size: 1em;
+            }
+            
+            .primary-card {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-container">
+        <div class="logo">📋</div>
+        <h1>Sistema de Emissão de Recibos</h1>
+        <p class="subtitle">
+            Crie recibos e pedidos profissionais com importação automática de preços via Excel
+            e impressão em formato A4.
+        </p>
+        
+        <div class="cards-grid">
+            <a href="sistema.html" class="card primary-card">
+                <div class="card-icon">🚀</div>
+                <div class="card-title">Iniciar Sistema</div>
+                <div class="card-description">
+                    Comece a emitir recibos agora! Importe sua planilha e adicione itens.
+                </div>
+            </a>
+            
+            <a href="gerar-exemplo.html" class="card">
+                <div class="card-icon">📊</div>
+                <div class="card-title">Gerar Planilha Exemplo</div>
+                <div class="card-description">
+                    Baixe uma planilha Excel com produtos de teste.
+                </div>
+            </a>
+            
+            <a href="INICIO-RAPIDO.md" class="card" target="_blank">
+                <div class="card-icon">⚡</div>
+                <div class="card-title">Guia Rápido</div>
+                <div class="card-description">
+                    Aprenda a usar em 2 minutos com exemplos práticos.
+                </div>
+            </a>
+            
+            <a href="README.md" class="card" target="_blank">
+                <div class="card-icon">📖</div>
+                <div class="card-title">Documentação</div>
+                <div class="card-description">
+                    Leia a documentação completa do sistema.
+                </div>
+            </a>
+        </div>
+        
+        <div class="info-section">
+            <h3>✨ Principais Funcionalidades</h3>
+            <ul>
+                <li>Importação automática de preços via arquivo Excel (.xlsx)</li>
+                <li>Busca de produtos por código com preenchimento automático</li>
+                <li>Cálculo automático de totais por item e do pedido completo</li>
+                <li>Impressão profissional em formato A4 (ou salvar como PDF)</li>
+                <li>Persistência de dados - não perde informações ao atualizar</li>
+                <li>Layout responsivo - funciona em desktop, tablet e celular</li>
+                <li>Totalmente offline após o primeiro carregamento</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
